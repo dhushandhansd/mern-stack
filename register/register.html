@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <base href="/">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .main-container {
+            padding: 0%;
+            margin: 0%;
+            height: 100vh;
+            background-image: linear-gradient(90deg, #FF416C, #FF4B2B);
+            color: white;
+            font-family: 'Segoe UI';
+        }
+
+        .main-container h1 {
+            font-size: 3rem;
+            padding: 15px 0px;
+        }
+
+        .form {
+            width: 750px;
+            height: 300px;
+            position: absolute;
+            flex-shrink: 3;
+            margin: 190px 300px;
+        }
+
+        #fullname {
+            border: none;
+            border-radius: 5px;
+            text-align: left;
+            padding-left: 10px;
+            width: 350px;
+            height: 35px;
+            vertical-align: top;
+        }
+
+        #username {
+            border: none;
+            border-radius: 5px;
+            text-align: left;
+            padding-left: 10px;
+            width: 350px;
+            height: 35px;
+            vertical-align: top;
+        }
+
+        #password {
+            border: none;
+            border-radius: 5px;
+            text-align: left;
+            padding-left: 10px;
+            width: 350px;
+            height: 35px;
+            vertical-align: top;
+        }
+
+        #reg-submit {
+            border: none;
+            border-radius: 5px;
+            width: 100px;
+            height: 30px;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+        }
+
+        .form ul {
+            list-style-type: none;
+        }
+
+        .form ul li {
+            padding: 10px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="form">
+            <h1>Register</h1>
+            <form id='reg-form'>
+                <ul>
+                    <li><input type="text" id="fullname" placeholder="Full Name" /></li>
+                    <li><input type="text" id="username" placeholder="Username" /></li>
+                    <li><input type="password" id="password" placeholder="Password" /></li>
+                    <li><input type="submit" id="reg-submit" value="Submit" /></li>
+                </ul>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        const form = document.getElementById('reg-form');
+        form.addEventListener('submit', registerUser);
+
+        var flag = true;
+
+        function validate(object) {
+            if (object.fullname === null || object.fullname === " " || object.fullname === "" ||
+                object.username === null || object.username === " " || object.username === "" ||
+                object.password === null || object.password === " " || object.password === "") {
+                flag = false;
+                alert("Fields cannot be Empty");
+            }
+        }
+
+        async function registerUser(event) {
+            event.preventDefault();
+            const fullname = document.getElementById('fullname').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+
+            validate(userDetail = {
+                fullname,
+                username,
+                password
+            });
+
+            if (fullname != null && username != null && password != null) {
+                console.log(fullname);
+                console.log(username);
+                console.log(password);
+            }
+
+
+
+
+            /*const resultSet = fetch('/register/api', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    fullname,
+                    username,
+                    password
+                })
+            })*/
+        }
+    </script>
+</body>
+
+</html>
