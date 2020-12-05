@@ -90,8 +90,8 @@
             <h1>Register</h1>
             <form id='reg-form'>
                 <ul>
-                    <li><input type="text" id="fullname" placeholder="Full Name" /></li>
-                    <li><input type="text" id="username" placeholder="Username" /></li>
+                    <li><input type="text" id="fullname" placeholder="Username" /></li>
+                    <li><input type="text" id="username" placeholder="Email" /></li>
                     <li><input type="password" id="password" placeholder="Password" /></li>
                     <li><input type="submit" id="reg-submit" value="Submit" /></li>
                 </ul>
@@ -117,20 +117,20 @@
 
         async function registerUser(event) {
             event.preventDefault();
-            const fullname = document.getElementById('fullname').value;
-            const username = document.getElementById('username').value;
+            const username = document.getElementById('fullname').value;
+            const email = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
 
             validate(userDetail = {
-                fullname,
                 username,
+                email,
                 password
             });
 
             if (fullname != null && username != null && password != null) {
-                console.log(fullname);
                 console.log(username);
+                console.log(email);
                 console.log(password);
             }
 
